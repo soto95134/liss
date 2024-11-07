@@ -10,10 +10,31 @@ import { Router } from '@angular/router';
 })
 export class Section3Component {
   constructor(private router: Router) {}
-
+  gamestart = false;
   gameOver = false;
   gameLost = false; // Variable para controlar si el jugador ha perdido
   currentRiddleIndex = 0; // Index of current riddle
+  currentDialog = 0; // Controla qué pregunta mostrar
+  dialogOptions = [
+    'Acercarme',
+    '¿Como sabes mi nombre?',
+    'Entiendo (en verdad no entiendes una mierda)',
+    '¿Es enserio? lo agradeceria mucho',
+    'No estoy entendiendo nada',
+    '¿Bendicion?',
+    'Creo que lo entiendo (no lo entiendes)',
+    'Comenzar el juego',
+  ];
+  smugDialog = [
+    '*Akala te mira desde el fondo de la sala*',
+    '¿Lisset, no?', // Primer diálogo
+    '*Sientes como se heriza tu piel en presencia de este demonio, no es como los demas* Yo se muchas cosas niña, Smug alardea sobre el "saber" pero el entendimiento es primordial, solo la comprension nos lleva a la sabiduria y a la lectura de como se mueven los hilos del destino', // Segundo diálogo
+    'Ohh... asi que la insignificante humana entiende, se que ya sabes sobre los numeros y las pruebas, Utenhope nos retendra a todos aqui hasta que pases las tres pruebas y tal y como hizo Kraken podria darte una prueba facil y salir todos de aqui', // Tercer diálogo
+    'Si, enserio, pero... no quiero, Utenhope me dijo que si no te dejaba pasar me daria uno de los pergaminos de Radaghon, pero no dejarte pasar implica encerrarte aqui por toda la eternindad y a mi y a esos otros dos contigo, al verte he encontrado algo interesante, los humanos son reconocidos por ser idiotas insignificantes y autodestructuvos pero, ¿y si hago que pruebes un poco de la iluminacion?¿como sera un humano despierto?',
+    'Mis disculpas pequeña descendiente del mono, te lo explicare de forma sensilla, quiero que seas iluminada y la unica manera de hacerlo es pasando mi prueba, una vez que lo hagas, quiza puedas aguantar la presencia de Utenhope, ademas esos otros dos bastardos ya te dieron su bendicion junto con su numero.',
+    '*exala irritada* Sin la bendicion de Smug no podrias haberte dado cuenta de la presencia de Kraken, es tan irrelevante que no puedes verlo a menos que tu mente sepa que existe de antemano, sin la bendicion Kraken para hacer irrelevante todo, tu cerebro habria explotado al entrar en contacto con mi aura despertada, en palabras mas sensillas, te dio la habilidad de que todo te valiera madres, incluyendo la verdad del mundo',
+    '*Te mira hacia abajo* da igual, pasa mi prueba, ilumina tu mente, obten mi numero y quiza seas capaz de estar en presencia de Utenhope sin morir en el intento.',
+  ];
   riddles = [
     {
       question:
@@ -117,5 +138,13 @@ export class Section3Component {
 
   volver() {
     this.router.navigate(['/lobby']).then(() => window.location.reload());
+  }
+
+  startGame() {
+    if (this.currentDialog < this.smugDialog.length - 1) {
+      this.currentDialog++; // Avanza al siguiente diálogo
+    } else {
+      this.gamestart = true;
+    }
   }
 }

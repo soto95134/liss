@@ -14,6 +14,30 @@ export class Section2Component {
   flippedCards: any[] = [];
   matchedCards: any[] = [];
   gameOver = false;
+  gamestart = false;
+  currentDialog = 0; // Controla qué pregunta mostrar
+  dialogOptions = [
+    'Siguiente',
+    'Siguiente',
+    '¿Hola?',
+    'Smug me dijo que debia pasar las pruebas',
+    '¿De verdad? entonces quiero el numero por favor!!',
+    'Algo anda mal',
+    '¿QUE PASA?',
+    '¿Le diste tu alma asi sin mas?',
+    'Está bien, comencemos el reto',
+  ];
+  smugDialog = [
+    '*Te acercas al demonio con un poco de duda*',
+    'Mmmm... hueles a humano, cuanto tiempo ha pasado desde que no ¿huelo a un humano? bah tampoco es que importe', // Primer diálogo
+    '*Notas como el demonio se da la vuelta y pierde completamente el interez en ti*', // Segundo diálogo
+    'Oh, ¿aun estas ahi? que extraño por lo general las demas entidades suelen pasar de mi, bueno soy irrelevante de todos modos', // Tercer diálogo
+    'Mmm ¿pruebas? ES CIERTO LAS PRUEBAS !! Por Belsebu no pense que fuese importante hacer algun tipo de pruebas, despues de todo, ¿que es lo que debemos probar? ¿tiene algun sentido evaluar tu capacidad de alguna manera? creo que no tiene importancia, creo que simplemente podria darte mi numero y ya',
+    'Jajaja ¿por favor? eres demasiado amable para estar aqui, asi que mira, los numeros son...',
+    '*notas como Kraken comienza a retorcerse del dolor*',
+    'Es ese maldito de Utenhope, si solo te doy el numero nos hace pasar por un dolor insoportable, pero habia olvidado que eso era relevante. Cai aqui cuando Utenhope me dijo que necesitaba mi alma para un trabajo y ahora estoy encerrado con los demas.',
+    'No pense que fuera tan importante, bien, vamos a jugar, Utenhope no puso regla sobre los juegos asi que usaremos este mazo de cartas que tengo aqui y uso para jugar cuando me siento solo.',
+  ];
 
   // Los nombres o imágenes de los personajes de terror
   cardValues: string[] = [
@@ -84,5 +108,13 @@ export class Section2Component {
 
   volver() {
     this.router.navigate(['/lobby']).then(() => window.location.reload());
+  }
+
+  startGame() {
+    if (this.currentDialog < this.smugDialog.length - 1) {
+      this.currentDialog++; // Avanza al siguiente diálogo
+    } else {
+      this.gamestart = true;
+    }
   }
 }

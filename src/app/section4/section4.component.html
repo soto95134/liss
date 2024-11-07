@@ -1,38 +1,67 @@
-<audio #soulAudio autoplay loop src="assets/audio/alma.mp3" type="audio/mp3">
+<!-- section4.component.html -->
+<audio #happyAudio autoplay loop src="assets/audio/utenhope.mp3" type="audio/mp3">
     Your browser does not support the <code>audio</code> element.
 </audio>
 
 <button (click)="volver()">Volver al lobby</button>
 
-<div class="claim-soul">
-    <h2>Reclama tu alma</h2>
-    <p>Has llegado a la última prueba. Ingresa el código para reclamar tu alma.</p>
-
-    <form (ngSubmit)="checkCode()">
-        <div class="form-group">
-            <label for="code">Introduce el código:</label>
-            <input
-                type="text"
-                id="code"
-                name="code"
-                required
-                minlength="3"
-                maxlength="3"
-                class="form-control"
-            />
-            <div *ngIf="codeInput.invalid && codeInput.touched" class="error">
-                El código debe tener 3 dígitos.
+<div class="memory-game">
+    <div class="quiz-container">
+        @if (!doorIsOpen) {
+            <img src="assets/door.jpg" alt="Imagen de Smug" class="card-image" />
+            <div class="card-body">
+                <h2>El portero</h2>
+                <p>{{ smugDialog[currentDialog] }}</p>
+                @if (currentDialog < smugDialog.length - 1) {
+                    <button (click)="nextDialog()"> {{ dialogOptions[currentDialog] }} </button>
+                }
+    
+                <!-- Inputs para los tres números -->
+    
+                    <div>
+                        <label>Introduce el primer número:</label>
+                        <input type="number" [(ngModel)]="input1">
+                        
+                        <label>Introduce el segundo número:</label>
+                        <input type="number" [(ngModel)]="input2">
+                        
+                        <label>Introduce el tercer número:</label>
+                        <input type="number" [(ngModel)]="input3">
+                        
+                        <button (click)="checkCode()">Ingresar Código</button>
+                    </div>
+    
+    
+    
+                <!-- Mensaje de error si el código es incorrecto -->
+                 @if (gameLost) {
+                    <div class="game-result">
+                        <p>*La puerta te mira con preocupacion* Nono, con Utenhope no suele ser tan sensillo, intenta sumando los numeros.</p>
+                    </div>
+                }
+    
+    
+                <!-- Mensaje de victoria si el código es correcto -->
+                 @if (gameOver) {
+                    <div class="game-result">
+                        <audio #happyAudio autoplay loop src="assets/audio/paf.mp3" type="audio/mp3">
+                            Your browser does not support the <code>audio</code> element.
+                        </audio>
+                        <h3>¡Lo lograste! Utenhope te espera... *dice la puerta mientras ves su cara llena de orgullo por haber hecho un buen trabajo</h3>
+                        <button (click)="enterTheSalon()">Ingresar a la sala</button>
+                    </div>
+                 }
+    
             </div>
-        </div>
-        <button type="submit">Reclamar alma</button>
-    </form>
+        }
+        @if (doorIsOpen) {
 
-    <div *ngIf="gameOver">
-        <h3>¡Felicidades! Has reclamado tu alma correctamente.</h3>
-    </div>
-
-    <div *ngIf="gameLost">
-        <h3>Lo siento, el código es incorrecto. Has fallado.</h3>
-        <button (click)="restartGame()">Reintentar</button>
+            <div class="card-body">
+                <h2>El gran salon</h2>
+                <img [src]="currentImage" alt="Imagen de la escena" class="card-image" />
+                <p>{{ utenhopeDialog[currentUtenhopeDialog] }}</p>
+                    <button (click)="nextUtenhopeDialog()"> {{ dialogUtenhopeOptions[currentUtenhopeDialog] }} </button>
+            </div>
+        }
     </div>
 </div>
