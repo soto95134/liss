@@ -1,0 +1,59 @@
+<audio #happyAudio autoplay src="assets/audio/fondofeliz.mp3" type="audio/mp3">
+  Your browser does not support the <code>audio</code> element.
+</audio>
+
+<div class="bienvenida-container" [class.dark-mode]="isDarkMode" [class.rosado]="section === 1" [class.sinister]="section <= 3" [class.sinister]="section === 4">
+  <!-- Sección 1: Felicitación y bienvenida -->
+
+  @if (section == 1) {
+
+    <div>
+      <img src="assets/felizcum.jpg" alt="Feliz Cumpleaños">
+      <h1>¡Feliz Cumpleaños, Liss! 🎉</h1>
+      <p>Hoy es un día muy especial, y no quería dejar pasar la oportunidad de hacer algo único para ti.</p>
+      <p>Recuerda todo lo maravilloso que eres y cuánto significas para quienes te rodean. Este día es solo para celebrar todo lo increíble que eres.</p>
+      <p>Así que, relájate, sonríe, y disfruta de cada instante. ¡Te mereces el mundo entero y más!</p>
+      <button (click)="continuar()">Continuar</button>
+    </div>    
+  }
+
+  <!-- Sección 2: Comienza el giro -->
+  @if (section == 2) {
+    <div>
+      <h1>Pero, obviamente, no podía ser solo un mensajito...</h1>
+      <p>Esta es una ocasión especial, y tenía que hacer algo único y lleno de sorpresas para ti.</p>
+      <p>He estado preparando esto con mucha dedicación, poniendo atención en cada detalle, y, si soy honesto... disfruté cada momento.</p>
+      <p>Este regalo es algo fuera de lo común, algo que no olvidarás fácilmente. ¿Estás lista para continuar?</p>
+      <button (click)="continuar()">Continuar</button>
+    </div>
+  }
+
+  <!-- Sección 3: Comienza el misterio -->
+  @if (section == 3) {
+    <div>
+      <audio #happyAudio autoplay src="assets/audio/paf.mp3" type="audio/mp3">
+        Your browser does not support the <code>audio</code> element.
+      </audio>
+        <img src="assets/Ritos.jpg" alt="Feliz Cumpleaños">
+        <h1>Los preparativos están listos...</h1>
+        <p>Las palabras han sido pronunciadas, los símbolos trazados y la atmósfera cargada de presagios. </p>
+        <p>Una vez iniciado este ritual, no hay vuelta atrás. Lo que está sellado, permanecerá sellado, y la maldición ha echado raíces profundas.</p>
+        <p>Ya no hay escapatoria. Solo queda un camino por delante...</p>
+        <button (click)="continuar()">Continuar</button>
+    </div>
+  }
+
+  <!-- Sección 4: El giro aterrador -->
+  @if (section == 4) {
+    <div>
+      <img src="assets/alma.png" alt="Feliz Cumpleaños">
+      <h1>Tu Alma Está Atrapada</h1>
+      <p>Has cruzado el umbral, Smug, Kraken y Akala han sido invocados y ahora tu alma yace atrapada entre sombras y secretos de esta pagina.</p>
+      <p>Encuentra a los demonios y encontrarás fragmentos de respuestas, veladas y ocultas. Solo descifrando cada una, podrás liberar lo que es tuyo... o quedarás prisionero para siempre.</p>
+      <p>La puerta se ha cerrado detrás de ti, y el último vestigio de luz se desvanece. Que tu voluntad sea lo suficientemente fuerte, pues solo los más astutos hallarán el camino de regreso.</p>
+      <!-- Música siniestra con autoplay -->
+      <audio #creepyAudio autoplay loop src="assets/audio/fondomiedo.mp3" type="audio/mp3"></audio>
+      <button (click)="continuar()">Descender al Infierno</button>
+    </div>
+  }
+</div>

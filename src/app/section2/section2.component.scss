@@ -1,0 +1,172 @@
+/* Contenedor principal del juego de memoria */
+.memory-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #1b1b1b;  // Fondo oscuro similar al estilo que deseas
+    color: #e5e5e5;  // Color de texto claro para contraste
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;  // Animación para que aparezca con suavidad
+}
+
+/* Título */
+h2 {
+    font-size: 2em;
+    color: #ff5722;  // Color de título naranja vibrante
+    margin-bottom: 15px;
+    text-shadow: 0 2px 6px rgba(255, 87, 34, 0.7);  // Efecto de sombra para resaltar el título
+}
+
+/* Imagen del juego */
+.card-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Texto de instrucciones */
+p {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #e5e5e5;
+}
+
+/* Contenedor de las reglas */
+.rules {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #333;  // Fondo oscuro para las reglas
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Listado de reglas */
+.rules h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ff5722;
+}
+
+.rules ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rules li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #e5e5e5;
+}
+
+/* Contenedor de las cartas */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Estilo de las cartas */
+.card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    border-radius: 8px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #f4f4f4;  // Color claro para la cara de la carta
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #2c2f3a;  // Fondo oscuro de la carta volteada
+    color: #e5e5e5;  // Texto claro en la carta volteada
+}
+
+/* Asegúrate de que las imágenes de la carta se ajusten bien */
+.card img {
+    width: 100%; /* La imagen se ajusta al 100% del tamaño de la carta */
+    height: 100%; /* La altura se ajusta al 100% de la carta */
+    object-fit: cover; /* Esto asegura que la imagen cubra completamente el área de la carta sin distorsionarse */
+    border-radius: 8px; /* Bordes redondeados en las imágenes */
+}
+
+/* Mensajes de estado del juego */
+.game-won, .game-over {
+    font-size: 1.4em;
+    color: #ff4444;  // Color de texto para los mensajes de victoria y derrota
+    margin-top: 20px;
+    text-shadow: 0 2px 8px rgba(255, 0, 0, 0.6);
+}
+
+/* Botones de acción */
+button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    margin: 8px 0;
+    font-size: 1em;
+    color: #fff;
+    background-color: #333;
+    border: 2px solid #ff5722;  // Borde con el mismo color que el título
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff5722;
+    color: #1b1b1b;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);  // Efecto de foco con sombra
+}
+
+/* Animación de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}

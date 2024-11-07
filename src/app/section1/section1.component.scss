@@ -1,0 +1,133 @@
+/* Contenedor principal del quiz */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #1b1b1b;
+    color: #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Título */
+h2 {
+    font-size: 2em;
+    color: #ff5722;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 6px rgba(255, 87, 34, 0.7);
+}
+
+/* Imagen */
+.card-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Texto de instrucciones */
+p {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #e5e5e5;
+}
+
+/* Botones de respuesta */
+button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    margin: 8px 0;
+    font-size: 1em;
+    color: #fff;
+    background-color: #333;
+    border: 2px solid #ff5722;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff5722;
+    color: #1b1b1b;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+}
+
+/* Texto de estado */
+.game-won, .game-over {
+    font-size: 1.4em;
+    color: #ff4444;
+    margin-top: 20px;
+    text-shadow: 0 2px 8px rgba(255, 0, 0, 0.6);
+}
+
+/* Animación de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Estilos para la card de conversación con Smug */
+.card {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Cuerpo de la card */
+.card-body {
+    color: #fff;
+    margin-top: 15px;
+}
+
+/* Botón de la card de conversación */
+.card .btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #d44c1c;
+}
+
+/* Estilo de la imagen dentro de la card */
+.card-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Título de la card */
+.card h2 {
+    font-size: 1.6em;
+    color: #ff5722;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(255, 87, 34, 0.7);
+}

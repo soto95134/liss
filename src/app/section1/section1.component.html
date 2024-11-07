@@ -1,0 +1,63 @@
+<!-- Audio de fondo mientras se habla con Smug -->
+<audio #happyAudio autoplay loop src="assets/audio/cuestion.mp3" type="audio/mp3">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+  
+  <!-- Botón de Volver al Lobby -->
+  <button (click)="volver()">Volver al lobby</button>
+  
+  <!-- Contenedor del quiz -->
+  @if (gameStarted) {
+    <div class="quiz-container">
+      <h2>Camino de la Incógnita de Smug</h2>
+      <img src="assets/cuestioanario.jpg" alt="Imagen 1" class="card-image" />
+      
+      @if (!gameOver && !gameWon) {
+        <p>Responde correctamente a 10 preguntas para obtener el número, pero cuidado, 3 errores y perderás.</p>
+      }
+      
+      @if (!gameOver && !gameWon) {
+        <div>
+          <p>{{ currentQuestionData?.question }}</p> <!-- Cambiar currentQuestion por currentQuestionData -->
+          @for (answer of currentQuestionData?.answers; track $index) { <!-- Cambiar currentQuestion por currentQuestionData -->
+            <button (click)="checkAnswer(answer)">
+              {{ answer }}
+            </button>
+          }
+        </div>
+      }
+      
+      @if (gameWon) {
+        <div class="game-over">
+            <audio #happyAudio autoplay src="assets/audio/paf.mp3" type="audio/mp3">
+                Your browser does not support the <code>audio</code> element.
+              </audio>
+        <p>bff miserable humano! Mi número es el 222, el número de las fuerzas opuestas. Te desearía suerte, pero disfruto del sufrimiento. Nos vemos en tus pesadillas.</p>
+    </div> 
+    }
+      
+      @if (gameOver) {
+        <div class="game-over">
+        <p>MIAUJAJAJAJA humano miserable, sere misericordioso contigo y puedes volver a intentarlo.</p>
+        <button (click)="reintentar()">Intentar otra vez</button>
+        </div>
+      }
+    </div>
+  }
+  
+  <!-- Card de Conversación con Smug (antes de empezar el juego) -->
+  @if (!gameStarted) {
+    <div class="quiz-container">
+      <img src="assets/cuestioanario.jpg" alt="Imagen de Smug" class="card-image" />
+      <div class="card-body">
+        <h2>Smug, El Eterno</h2>
+        <p>{{ smugDialog[currentDialog] }}</p>
+        
+        <!-- Botón para avanzar al siguiente diálogo o iniciar el juego -->
+        <button class="btn" (click)="startGame()">
+          {{ dialogOptions[currentDialog] }}
+        </button>
+      </div>
+    </div>
+  }
+  

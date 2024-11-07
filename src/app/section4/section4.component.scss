@@ -1,0 +1,66 @@
+.final-section {
+    text-align: center;
+    color: white;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .final-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .final-section p {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .final-section .final-image {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  .code-entry {
+    margin-top: 20px;
+  }
+  
+  .code-entry input {
+    padding: 10px;
+    font-size: 1.2em;
+    width: 200px;
+    margin-right: 10px;
+  }
+  
+  .code-entry button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .code-entry button:hover {
+    background-color: #cc0000;
+  }
+  
+  .gameOver {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ff0000;
+    color: black;
+  }
+  

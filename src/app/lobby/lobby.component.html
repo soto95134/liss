@@ -1,0 +1,71 @@
+<audio #happyAudio autoplay src="assets/audio/lobby.mp3" type="audio/mp3">
+    Your browser does not support the <code>audio</code> element.
+</audio>
+
+<div class="lobby-container">
+    <div class="lobby-container">
+        <h3>Salon de los demonios menores</h3>
+        <p>Estos tres comparten estancia contigo, despues del ritual tu alma fue arrastrada al inframundo por estos bastardos,
+            pero puede que sean estos mismos los que te puedan ayudar a salir de aqui...</p>
+        <div class="p-grid">
+          <!-- Tarjeta de Smug -->
+          <div class="p-col-4">
+            <p-card>
+              <h3>Smug, El Eterno</h3>
+              <div class="card-container">
+                <img src="assets/cuestioanario.jpg" alt="Imagen de Smug" class="card-image" />
+                <div id="smug-bubble" class="bubble-text">¿Que estas mirando, crees que soy un gato comun? por cierto ¿tendras algo de catnip en el bolsillo?</div>
+              </div>
+              <h3>Astuto si, pero un gato al final del dia</h3>
+              <p>Creyo que podria hacer que Utenhope le suministrara pescado por toda la eternidad si lo retaba a un "Duelo de quien sabe mas datos
+                irrelevantes que nunca usaras en tu dia a dia" Lamentablemente Utenhope ve videos de "¿sabias que?" todos los dias antes de dormir.</p>
+              <button (click)="cuestionario()">Hablar</button>
+            </p-card>
+          </div>
+      
+          <!-- Tarjeta de Kraken -->
+          <div class="p-col-4">
+            <p-card>
+              <h3>Kraken, el Irrelevante</h3>
+              <div class="card-container">
+                <img src="assets/memoria.jpg" alt="Imagen de Kraken" class="card-image" />
+                <div class="bubble-text">En efecto, soy irrelevante</div>
+              </div>
+              <h3>Irrelevante totalmente</h3>
+              <p>Es irrelevante.</p>
+              <button (click)="memoria()">Hablar</button>
+            </p-card>
+          </div>
+      
+          <!-- Tarjeta de Akala -->
+          <div class="p-col-4">
+            <p-card>
+              <h3>Akala, la Despierta</h3>
+              <div class="card-container">
+                <img src="assets/adivina.jpg" alt="Imagen de Akala" class="card-image" />
+                <div class="bubble-text">Deberia decir algo misterioso pero Utenhope no me paga lo suficiente</div>
+              </div>
+              <h3>Le dicen la despierta pero en realidad si duerme</h3>
+              <p>Utenhope le dijo que si trabajaba para el le daria el Pergamino perdido de Radaghon, es la unica de los tres que no ha perdido su alma aun
+                y que realmente trabaja para Utenhope por voluntad propia.</p>
+              <button (click)="adivina()">Hablar</button>
+            </p-card>
+          </div>
+        </div>
+      </div>
+      
+
+    <!-- Fila inferior con 1 columna -->
+    <div class="p-grid">
+        <div class="p-col-12">
+            <p-card>
+                <h3>Utenhope, El sin esperanzas</h3>
+                <img src="assets/utenhope.png" alt="Imagen 4" class="card-image" />
+                <p>
+                    Para recuperar tu alma perdida, deberás obtener los tres números de las pruebas de Smug, Kraken y Akala. Solo entonces, el alma te será devuelta.
+                </p>
+                <button (click)="alma()">Recuperar mi Alma</button>
+            </p-card>
+        </div>
+    </div>
+</div>

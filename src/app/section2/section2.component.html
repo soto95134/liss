@@ -1,0 +1,48 @@
+<audio #happyAudio autoplay loop src="assets/audio/memoria.mp3" type="audio/mp3">
+    Your browser does not support the <code>audio</code> element.
+</audio>
+<button (click)="volver()">Volver al lobby</button>
+<div class="memory-game">
+    <h2>Camino la mente de Kraken</h2>
+    <img src="assets/memoria.jpg" alt="Imagen 1" class="card-image" />
+    <div class="rules">
+        <h3>Reglas del Juego</h3>
+        <ul>
+          <li>Esta es mi prueba, voltea las cartas para emparejarlas.</li>
+          <li>El juego termina cuando todas las cartas sean emparejadas. Quiza parezca algo facil ya que no puedes perder pero me dio flojera hacer algo mas
+            producido ya que Utenhope no me paga lo suficiente.
+          </li>
+        </ul>
+      </div>
+    @if (gameOver) {
+        <div class="game-over">
+            <h3>que? ya? bueno ahora podre irme a la cama, mi numero es el 212, no le digas a Utenhope que lo hice facil o me
+                enviara al pugatorio otra vez jeje.</h3>
+            <button (click)="restartGame()">Reiniciar juego</button>
+          </div>
+    }
+    @if (!gameOver) {
+        <div class="cards-container">
+            @for (card of cards; track $index) {
+                <div class="card"
+                    [class.flipped]="flippedCards.includes($index)"
+                    (click)="flipCard($index)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <!-- Imagen en la parte del frente de la carta -->
+                             @if (!matchedCards.includes($index)) {<img [src]="'assets/images/flip.png'" alt="?" />}@else {<img [src]="card" alt="Personaje" />}
+                        
+                        </div>
+                        <div class="card-back">
+                            <!-- Imagen de la carta en la parte posterior -->
+                            <img [src]="card" alt="Personaje" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+
+  </div>
+  

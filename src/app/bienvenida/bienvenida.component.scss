@@ -1,0 +1,126 @@
+.bienvenida-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+  padding: 20px;
+  overflow: hidden;
+
+  // Animación de aparición de texto e imágenes
+  h1, p, img, button {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1s forwards ease-in-out;
+  }
+
+  &.rosado {
+    background-color: #ffccff;
+    color: #ff66b2;
+
+    h1, p {
+      animation-delay: 0.5s;
+    }
+    
+    button {
+      animation-delay: 1s;
+    }
+  }
+
+  &.alegre {
+    background-color: #ffe680;
+    color: #ffa31a;
+
+    h1, p {
+      animation-delay: 0.5s;
+    }
+    
+    button {
+      animation-delay: 1s;
+    }
+  }
+
+  &.sinister {
+    background-color: #1a1a1a;
+    color: #ff0000;
+
+    h1, p, img {
+      animation-delay: 0.8s;
+    }
+    
+    button {
+      background-color: #990000;
+      color: #fff;
+      animation-delay: 1.3s;
+
+      &:hover {
+        background-color: #cc0000;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    animation: fadeIn 1s forwards ease-in-out;
+  }
+
+  p {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    animation: fadeIn 1.2s forwards ease-in-out;
+  }
+
+  button {
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+    animation: fadeIn 1.5s forwards ease-in-out;
+
+    &:hover {
+      background-color: #45a049;
+    }
+
+    &.dark-mode {
+      background-color: #b30000;
+      color: #fff;
+    }
+  }
+}
+
+// Definición de la animación
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

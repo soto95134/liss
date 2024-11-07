@@ -1,0 +1,52 @@
+<audio #adivinaAudio autoplay loop src="assets/audio/adivinanza.mp3" type="audio/mp3">
+    Your browser does not support the <code>audio</code> element.
+</audio>
+
+
+<button (click)="volver()">Volver al lobby</button>
+
+<div class="riddle-game">
+    <h2>Camino la mente de Revelacion de Akala</h2>
+    <img src="assets/adivina.jpg" alt="Imagen 1" class="card-image" />
+    <div class="rules">
+        <h3>Reglas del Juego</h3>
+        <ul>
+          <li>Esta es mi prueba, encuentra la respuesta a todas las incognitas.</li>
+          <li>El juego termina cuando todas las respuestas sean encontradas, Utenhope me dijo que si no pasabas de aqui me restaria 200 años de condena, 
+            aun asi te deseo suerte.
+          </li>
+        </ul>
+      </div>
+    @if (!gameOver && !gameLost) {
+        <div class="riddle">
+            <h3>{{ riddles[currentRiddleIndex].question }}</h3>
+            <div class="options">
+                @for (option of riddles[currentRiddleIndex].options; track $index) {
+                    <button (click)="checkAnswer(option)">
+                        {{ option }}
+                    </button>
+                }
+            </div>
+            @if (riddles[currentRiddleIndex].playerAnswer) {
+                <p>
+                    Respuesta: {{ riddles[currentRiddleIndex].playerAnswer === riddles[currentRiddleIndex].correctAnswer ? 'Correcta' : 'Incorrecta' }}
+                </p>
+            }
+
+        </div>
+    }
+
+    @if (gameLost) {
+        <div>
+            <h3>¡Has perdido! El juego ha terminado.</h3>
+            <button (click)="restartGame()">Reiniciar juego</button>
+        </div>
+    }
+
+    @if (gameOver && !gameLost) {
+        <div>
+            <h3>¡Felicidades! Has completado todas las adivinanzas.</h3>
+            <button (click)="restartGame()">Reiniciar juego</button>
+        </div>
+    }
+</div>
